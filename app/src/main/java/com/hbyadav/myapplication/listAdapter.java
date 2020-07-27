@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+import com.android.tourguide.R;
 public class listAdapter extends ArrayAdapter {
     ArrayList<String> students;
     ArrayList<Boolean> attendanceList;
@@ -21,7 +21,7 @@ public class listAdapter extends ArrayAdapter {
 
     public listAdapter(Context context, ArrayList<String> name) {
         super(context, R.layout.list_ele, name);
-// TODO Auto-generated constructor stub
+
         this.context = context;
         this.students = name;
         attendanceList = new ArrayList<>();

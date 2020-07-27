@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.android.tourguide.R;
 public class Student_sign extends AppCompatActivity {
     StudentbaseAdapter studentAdapter;
     Button btnCreateAccount;
@@ -24,13 +24,12 @@ public class Student_sign extends AppCompatActivity {
         btnCreateAccount = (Button) findViewById(R.id.enter);
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-// TODO Auto-generated method stub
                 String userName = editTextUserName.getText().toString();
                 String password = editTextPassword.getText().toString();
                 String confirmPassword = editTextConfirmPassword.getText().toString();
-// check if any of the fields are vaccant
+// check if any of the fields are vacant
                 if (userName.equals("") || password.equals("") || confirmPassword.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Field Vacant", Toast.LENGTH_LONG).show();
                 }
 // check if both password matches
                 else if (!password.equals(confirmPassword)) {

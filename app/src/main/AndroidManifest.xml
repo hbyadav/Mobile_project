@@ -29,7 +29,27 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.hbyadav.myapplication.Student"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.hbyadav.myapplication.Student_home"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hbyadav.myapplication.Student_attendence"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hbyadav.myapplication.Student_sign"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hbyadav.myapplication.Student_display"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hbyadav.myapplication.Student_schedule"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name="com.hbyadav.myapplication.Profile" />

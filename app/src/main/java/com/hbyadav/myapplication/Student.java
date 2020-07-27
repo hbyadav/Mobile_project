@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.android.tourguide.R;
 public class Student extends AppCompatActivity {
     public String username;
     EditText editTextname, editTextpassword;
