@@ -67,8 +67,8 @@ public class Make_schedule extends AppCompatActivity {
             return;
         }
         TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
-        int hour = timePicker.getHour();            // TODO check if this gets current time, API changed
-        int min = timePicker.getMinute();
+        int hour = timePicker.getCurrentHour();
+        int min = timePicker.getCurrentMinute();
         String Hour = String.valueOf(hour);
         studentAdapter.Schedule(classSelected, subject, Hour, daySelected, username);
         Toast.makeText(getBaseContext(), "Saving Schedule", Toast.LENGTH_SHORT).show();

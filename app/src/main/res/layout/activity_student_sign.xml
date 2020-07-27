@@ -4,12 +4,50 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="May need to add text here. Not sure if this layout is used."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Sign Up"
+        android:gravity="center"
+        android:textColor="@color/text1"
+        android:textSize="50sp" />
+
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:textColor="@color/text2"
+        android:textColorHint="@color/text2"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:textColor="@color/text2"
+        android:textColorHint="@color/text2"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:textColor="@color/text2"
+        android:textColorHint="@color/text2"
+        android:textSize="25sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <Button
         android:id="@+id/enter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textSize="25sp" />
 
 </LinearLayout>

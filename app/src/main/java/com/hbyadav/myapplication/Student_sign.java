@@ -20,7 +20,11 @@ public class Student_sign extends AppCompatActivity {
         setContentView(R.layout.activity_student_sign);
         studentAdapter = new StudentbaseAdapter(this);
         studentAdapter = studentAdapter.open();
-// Get Refferences of Views editTextUserName=(EditText)findViewById(R.id.editTextUserName); editTextPassword=(EditText)findViewById(R.id.editTextPassword); editTextConfirmPassword=(EditText)findViewById(R.id.editTextConfirmPassword);
+// Get Refferences of Views
+        editTextUserName=(EditText)findViewById(R.id.editTextUserName);
+        editTextPassword=(EditText)findViewById(R.id.editTextPassword);
+        editTextConfirmPassword=(EditText)findViewById(R.id.editTextConfirmPassword);
+
         btnCreateAccount = (Button) findViewById(R.id.enter);
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -38,6 +42,8 @@ public class Student_sign extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Student_sign.this, Profile.class);
+                    intent.putExtra("user", userName);
+                    intent.putExtra("pwd", password);
                     startActivity(intent);
                 }
             }
