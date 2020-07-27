@@ -15,11 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void manage(View view) {
-        Intent intent = new Intent(this, Manage.class);
-        startActivity(intent);
-    }
-
     public void sign(View view) {
         Intent intent = new Intent(this, Student_sign.class);
         startActivity(intent);

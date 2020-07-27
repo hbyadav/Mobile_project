@@ -17,7 +17,6 @@ public class listAdapter extends ArrayAdapter {
     ArrayList<Boolean> attendanceList;
     Context context;
     Activity activity;
-    Manage manage;
 
     public listAdapter(Context context, ArrayList<String> name) {
         super(context, R.layout.list_ele, name);

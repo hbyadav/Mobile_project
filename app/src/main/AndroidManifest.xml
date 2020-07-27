@@ -25,10 +25,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hbyadav.myapplication.Manage"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.hbyadav.myapplication.Student"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
