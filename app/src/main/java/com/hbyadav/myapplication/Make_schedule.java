@@ -14,7 +14,7 @@ import com.android.tourguide.R.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-
+import com.android.tourguide.R;
 public class Make_schedule extends AppCompatActivity {
     Spinner classSelect, daySelect;
     ArrayAdapter adapterSpinner, days;

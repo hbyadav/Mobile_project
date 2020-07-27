@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.android.tourguide.R;
-
 public class SimpleFragmentAdapter extends FragmentPagerAdapter {
     private Context mContext;
 
@@ -21,7 +20,7 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return new Home_fragment();
         } else if (position == 1)
-            return new schedule_fragment();
+            return new Schedule_fragment();
         else {
             return new Attendence_fragment();
         }
@@ -39,6 +38,6 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
         } else if (position == 1) {
             return mContext.getString(R.string.Student_schedule);
         } else
-            return mContext.getString(R.string.Student_Attendence);
+            return mContext.getString(R.string.Student_Attendance);
     }
 }

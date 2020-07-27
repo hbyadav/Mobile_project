@@ -3,7 +3,7 @@ package com.hbyadav.myapplication;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.android.tourguide.R;
 public class Student_schedule extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

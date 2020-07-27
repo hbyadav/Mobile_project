@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-
+import com.android.tourguide.R;
 public class Schedule_fragment extends Fragment {
     ListView listView;
     ArrayAdapter adapter;

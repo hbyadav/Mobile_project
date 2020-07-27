@@ -7,7 +7,7 @@ import android.view.View;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.android.tourguide.R;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

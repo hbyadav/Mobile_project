@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-
+import com.android.tourguide.R;
 public class Student_display extends AppCompatActivity {
     private static String name;
 

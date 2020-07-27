@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-
+import com.android.tourguide.R;
 public class Manage extends AppCompatActivity {
     StudentbaseAdapter studentAdapter;
     Helper help;
