@@ -8,16 +8,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import com.android.tourguide.R;
-import com.android.tourguide.R.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Date;
+=======
+>>>>>>> 6f8a191ae6d1d8f1f16fcb315b088b610062f70b
 
 import com.android.tourguide.R;
+
 public class Make_schedule extends AppCompatActivity {
     Spinner classSelect, daySelect;
     ArrayAdapter adapterSpinner, days;
