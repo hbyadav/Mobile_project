@@ -85,7 +85,7 @@ public class Schedule_fragment extends Fragment {
                 cursor.moveToNext();
             }
         }
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(),
+        adapter = new ArrayAdapter(getActivity(),
                 android.R.layout.simple_list_item_1, subs);
         listView.setAdapter(adapter);
     }

@@ -9,6 +9,6 @@ public class Student_schedule extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_schedule);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new Attendence_fragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new Schedule_fragment()).commit();
     }
 }

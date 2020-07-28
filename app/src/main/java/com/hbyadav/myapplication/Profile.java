@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.tourguide.R;
 public class Profile extends AppCompatActivity {
     EditText editTextName,editTextfees,editschool,edityear,editphone;
-    Button btnCreateAccount,btnlogout;
+    Button btnCreateAccount;
     StudentbaseAdapter studentAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class Profile extends AppCompatActivity {
         editschool=(EditText)findViewById(R.id.edittextschool);
         editphone=(EditText)findViewById(R.id.edittextphone);
 
-        btnCreateAccount=(Button)findViewById(R.id.create); btnlogout=(Button)findViewById(R.id.logout);
+        btnCreateAccount=(Button)findViewById(R.id.create);
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
@@ -56,11 +56,6 @@ public class Profile extends AppCompatActivity {
 //        Intent intent=new Intent(this,Profile.class);
 //        startActivity(intent);
 //    }
-//    public void logout(View view)
-//    {
-//        Intent intent=new Intent(this,MainActivity.class);
-//        startActivity(intent);
-//        }
 
     @Override
     protected void onDestroy() {

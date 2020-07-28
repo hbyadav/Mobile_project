@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="319dp"
-        android:layout_height="319dp"
+        android:layout_width="211dp"
+        android:layout_height="244dp"
         android:layout_gravity="center"
         tools:src="@drawable/umkc" />
 
@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            app:rippleColor="@color/ripple"
             android:onClick="sign"
             android:text="Sign Up"
             android:textColor="@color/text1"
@@ -38,6 +39,7 @@
 
         <com.google.android.material.button.MaterialButton
             style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -47,8 +49,6 @@
             android:textSize="20sp" />
     </com.google.android.material.card.MaterialCardView>
 
-<<<<<<< HEAD
-=======
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -57,6 +57,7 @@
 
         <com.google.android.material.button.MaterialButton
             style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -67,7 +68,8 @@
             android:title="@string/change_city" />
     </com.google.android.material.card.MaterialCardView>
 
->>>>>>> 6f8a191ae6d1d8f1f16fcb315b088b610062f70b
+    <!--add button for other API-->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

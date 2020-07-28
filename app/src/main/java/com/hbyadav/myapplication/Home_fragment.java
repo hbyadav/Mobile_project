@@ -22,7 +22,7 @@ public class Home_fragment extends Fragment {
     StudentbaseAdapter studentAdapter;
     Student_display student = new Student_display();
     public String username = "";
-    public FloatingActionButton editProfile;
+    public FloatingActionButton editProfile, logoutBtn;
 
     @Nullable
     @Override
@@ -43,6 +43,15 @@ public class Home_fragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
+
+        logoutBtn = (FloatingActionButton) view.findViewById(R.id.logout);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {            // redirect user to login page on logout
+                Intent intent = new Intent(getActivity(), Student.class);
+                startActivity(intent);
+            }
+        });
 
         username = student.Username();
         if (username != null) {

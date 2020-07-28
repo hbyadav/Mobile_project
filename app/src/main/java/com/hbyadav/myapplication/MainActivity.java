@@ -30,11 +30,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-<<<<<<< HEAD
-    // Sign up for the app
-=======
 
->>>>>>> 6f8a191ae6d1d8f1f16fcb315b088b610062f70b
+    // Sign up for the app
     public void sign(View view) {
         Intent intent = new Intent(this, Student_sign.class);
         startActivity(intent);

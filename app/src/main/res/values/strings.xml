@@ -4,6 +4,7 @@
     <string name="Student_schedule">Schedule</string>
     <string name="Student_Attendance">Attendance</string>
     <string name="change_city">Change city</string>
+    <string name="weather">Weather</string>
 
     <!-- Put your own APP ID here -->
     <string name="open_weather_maps_app_id">82d97041880c12cc833df31e50ea5901</string>

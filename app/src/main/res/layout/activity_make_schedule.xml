@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -14,7 +16,7 @@
     <EditText
         android:id="@+id/subjectName"
         android:textColorHint="@color/text2"
-        android:layout_width="299dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Class Name/Nickname"
         android:textColor="@color/text2"
@@ -55,13 +57,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/saveBUTTON_SCHEDULE"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Add to Schedule"
-        android:textAllCaps="false"
-        android:textSize="25sp" />
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MaterialComponents.Light">
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            android:layout_gravity="center"
+            app:rippleColor="@color/ripple"
+            android:textColor="@color/text1"
+            android:id="@+id/saveBUTTON_SCHEDULE"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Add to Schedule"
+            android:textAllCaps="false"
+            android:textSize="25sp" />
+    </com.google.android.material.card.MaterialCardView>
 
 
 </LinearLayout>

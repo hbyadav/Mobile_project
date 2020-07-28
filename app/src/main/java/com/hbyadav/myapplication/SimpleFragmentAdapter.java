@@ -5,9 +5,10 @@ import android.content.Context;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.android.tourguide.R;
-public class SimpleFragmentAdapter extends FragmentPagerAdapter {
+public class SimpleFragmentAdapter extends FragmentStatePagerAdapter {
     private Context mContext;
 
     public SimpleFragmentAdapter(Context context, FragmentManager fm) {
@@ -20,6 +21,9 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return new Home_fragment();
         }
+        else if (position == 2) {
+            return new WeatherFragment();
+        }
         else {
             return new Schedule_fragment();
         }
@@ -27,13 +31,16 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {        // set tab title
         if (position == 0) {
             return mContext.getString(R.string.Student_Home);
+        }
+        else if(position == 2) {
+            return mContext.getString(R.string.weather);
         }
         else
             return mContext.getString(R.string.Student_schedule);

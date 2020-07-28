@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!--Login Page-->
     <TextView
@@ -28,13 +30,22 @@
         android:textColorHint="@color/text2"
         android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/enter"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:onClick="enter"
-        android:textSize="25sp" />
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MaterialComponents.Light">
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            android:textColor="@color/text1"
+            android:layout_gravity="center"
+            app:rippleColor="@color/ripple"
+            android:id="@+id/enter"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:onClick="enter"
+            android:textSize="25sp" />
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
