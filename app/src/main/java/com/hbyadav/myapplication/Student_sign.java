@@ -40,10 +40,10 @@ public class Student_sign extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password does not match",
                             Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
+                    studentAdapter.insertEntry(userName, password);
+                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Student_sign.this, Profile.class);
                     intent.putExtra("user", userName);
-                    intent.putExtra("pwd", password);
                     startActivity(intent);
                 }
             }

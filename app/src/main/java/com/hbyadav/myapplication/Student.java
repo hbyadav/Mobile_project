@@ -21,32 +21,25 @@ public class Student extends AppCompatActivity {
         studentAdapter = new StudentbaseAdapter(this);
         studentAdapter = studentAdapter.open();
         editTextname = (EditText) findViewById(R.id.editname);
+        editTextpassword = (EditText) findViewById(R.id.password);
     }
 
     public void enter(View view) {
-        // get the Refferences of views
-        editTextpassword = (EditText) findViewById(R.id.password);
-        Button button = (Button) findViewById(R.id.enter);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        // get the References of views
                 // get The User name and Password
                 username = editTextname.getText().toString();
                 String password = editTextpassword.getText().toString();
                 String storedPassword = studentAdapter.getpassword(username);
 
                 if (password.equals(storedPassword)) {
-                    Toast.makeText(Student.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Student.this, "Login Successful", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Student.this, Student_display.class);
-                    intent.putExtra("message", username);
+                    intent.putExtra("username", username);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(Student.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Student.this, "Username or Password is incorrect", Toast.LENGTH_LONG).show();
                 }
-            }
-        });
-
-    }
+        }
 
 
     @Override
@@ -61,4 +54,3 @@ public class Student extends AppCompatActivity {
         return username;
     }
 }
-

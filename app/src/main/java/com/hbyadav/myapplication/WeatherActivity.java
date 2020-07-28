@@ -32,13 +32,6 @@ public class WeatherActivity extends AppCompatActivity {
                     .commit();
         }
     }
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.change_city){
-            showInputDialog();
-        }
-        return false;
-    }*/
 
     private void showInputDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

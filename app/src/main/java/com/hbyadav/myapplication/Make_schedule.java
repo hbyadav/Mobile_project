@@ -13,14 +13,13 @@ import com.android.tourguide.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import com.android.tourguide.R;
 
 public class Make_schedule extends AppCompatActivity {
     Spinner classSelect, daySelect;
     ArrayAdapter adapterSpinner, days;
-    String courses[] = {"MAD", "DBMS", "EMSA", "OS", "CRST", "COA", "DAA"};
+    String courses[] = {"ANCH", "BIOL", "COMP-SCI", "ENGL", "HIST", "MATH", "PHYS"};
     StudentbaseAdapter studentAdapter;
     Student_display student_display = new Student_display();
     public String username = "";
@@ -59,20 +58,21 @@ public class Make_schedule extends AppCompatActivity {
     }
 
     private void saveSchedule(View v) {
+        // get selected/entered fields
         String daySelected = daySelect.getSelectedItem().toString();
         String classSelected = classSelect.getSelectedItem().toString();
         EditText editText = (EditText) findViewById(R.id.subjectName);
-        String subject = editText.getText().toString();
-        if (subject.length() < 2) {
-            Toast.makeText(getBaseContext(), "Enter Valid Subject Name",
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
+        String className = editText.getText().toString();
+        // get time value
         TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
         int hour = timePicker.getCurrentHour();
         int min = timePicker.getCurrentMinute();
+        SimpleDateFormat df = new SimpleDateFormat("hh:mm");
+                                             // TODO has issues with afternoon time formatting
         String Hour = String.valueOf(hour);
-        studentAdapter.Schedule(classSelected, subject, Hour, daySelected, username);
-        Toast.makeText(getBaseContext(), "Saving Schedule", Toast.LENGTH_SHORT).show();
+        String Min = String.valueOf(min);
+        String time = Hour + ":" + Min;
+        studentAdapter.Schedule(classSelected, className, time, daySelected, username);
+        Toast.makeText(getBaseContext(), "Schedule Saved", Toast.LENGTH_SHORT).show();
     }
 }

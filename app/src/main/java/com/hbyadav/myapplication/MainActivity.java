@@ -31,11 +31,12 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
     }
 
+    // Sign up for the app
     public void sign(View view) {
         Intent intent = new Intent(this, Student_sign.class);
         startActivity(intent);
     }
-
+    // Log into the app
     public void login(View view) {
         Intent intent = new Intent(this, Student.class);
         startActivity(intent);

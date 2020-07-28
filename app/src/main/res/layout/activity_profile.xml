@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -19,17 +21,11 @@
         android:textColorHint="@color/text2" />
 
     <EditText
-        android:id="@+id/edittextid"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:hint="Student ID"
-        android:textColorHint="@color/text2" />
-
-    <EditText
         android:id="@+id/edittextfees"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:hint="Student Fees"
+        android:hint="Student Fees (in numerical USD amount)"
+        android:inputType="numberDecimal"
         android:textColorHint="@color/text2" />
 
     <EditText
@@ -37,6 +33,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Graduation Year"
+        android:inputType="number"
         android:textColorHint="@color/text2" />
 
     <EditText
@@ -54,13 +51,22 @@
         android:inputType="phone"
         android:textColorHint="@color/text2" />
 
-    <Button
-        android:id="@+id/create"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Update Information"
-        android:textAllCaps="false"
-        android:textSize="25sp" />
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MaterialComponents.Light">
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            android:layout_gravity="center"
+            app:rippleColor="@color/ripple"
+            android:textColor="@color/text1"
+            android:id="@+id/create"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Update Information"
+            android:textAllCaps="false"
+            android:textSize="25sp" />
+    </com.google.android.material.card.MaterialCardView>
 
 <!--    <Button-->
 <!--        android:id="@+id/logout"-->
