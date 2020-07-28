@@ -16,15 +16,16 @@
         android:textColorHint="@color/text2"
         android:layout_width="299dp"
         android:layout_height="wrap_content"
-        android:hint="Subject Name"
+        android:hint="Class Name/Nickname"
         android:textColor="@color/text2"
         android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:textColorHint="@color/text2"
+        android:layout_marginLeft="2dp"
         android:layout_height="wrap_content"
-        android:text="Class ID (choose below)"
+        android:text="Subject ID (choose below)"
         android:textColor="@color/text2"
         android:textSize="20sp" />
 
@@ -37,6 +38,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
         android:textColorHint="@color/text2"
         android:text="Class Day (choose below)"
         android:textColor="@color/text2"

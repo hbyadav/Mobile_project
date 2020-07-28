@@ -18,7 +18,7 @@ public class Student_display extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_display);
         Bundle bundle = getIntent().getExtras();
-        name = bundle.getString("message");
+        name = bundle.getString("username");
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         SimpleFragmentAdapter adapter = new SimpleFragmentAdapter(this, getSupportFragmentManager());
 // Set the adapter onto the view pager
@@ -41,10 +41,10 @@ public class Student_display extends AppCompatActivity {
                 Intent intent = new Intent(this, Student_display.class);
                 startActivity(intent);
                 return true;
-            case R.id.Edit_Profile:
-                Intent intent1 = new Intent(this, Profile.class);
-                startActivity(intent1);
-                return true;
+//            case R.id.Edit_Profile:
+//                Intent intent1 = new Intent(this, Profile.class);
+//                startActivity(intent1);
+//                return true;
             case R.id.logout:
                 Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);

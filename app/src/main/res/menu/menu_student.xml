@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/View_Profile"
         android:title="View Profile"/>
-    <item android:id="@+id/Edit_Profile"
-        android:title="Edit Profile"/>
+<!--    <item android:id="@+id/Edit_Profile"-->
+<!--        android:title="Edit Profile"/>-->
     <item android:id="@+id/logout"
         android:title="Logout"/>
 

@@ -10,7 +10,7 @@
         android:layout_width="319dp"
         android:layout_height="319dp"
         android:layout_gravity="center"
-        tools:srcCompat="@drawable/umkc" />
+        tools:src="@drawable/umkc" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"

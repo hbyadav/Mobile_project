@@ -19,17 +19,11 @@
         android:textColorHint="@color/text2" />
 
     <EditText
-        android:id="@+id/edittextid"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:hint="Student ID"
-        android:textColorHint="@color/text2" />
-
-    <EditText
         android:id="@+id/edittextfees"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:hint="Student Fees"
+        android:hint="Student Fees (in numerical USD amount)"
+        android:inputType="numberDecimal"
         android:textColorHint="@color/text2" />
 
     <EditText
@@ -37,6 +31,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Graduation Year"
+        android:inputType="number"
         android:textColorHint="@color/text2" />
 
     <EditText

@@ -16,28 +16,26 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(int position) {                 // show the right tab fragment
         if (position == 0) {
             return new Home_fragment();
-        } else if (position == 1)
-            return new Schedule_fragment();
+        }
         else {
-            return new Attendence_fragment();
+            return new Schedule_fragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
+    public CharSequence getPageTitle(int position) {        // set tab title
         if (position == 0) {
             return mContext.getString(R.string.Student_Home);
-        } else if (position == 1) {
+        }
+        else
             return mContext.getString(R.string.Student_schedule);
-        } else
-            return mContext.getString(R.string.Student_Attendance);
     }
 }

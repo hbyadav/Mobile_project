@@ -25,6 +25,7 @@
         android:layout_width="323dp"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:inputType="textPassword"
         android:textColor="@color/text2"
         android:textColorHint="@color/text2"
         android:textSize="25sp" />
@@ -34,6 +35,7 @@
         android:layout_width="322dp"
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
+        android:inputType="textPassword"
         android:textColor="@color/text2"
         android:textColorHint="@color/text2"
         android:textSize="25sp" />
