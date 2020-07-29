@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="211dp"
-        android:layout_height="244dp"
+        android:layout_width="249dp"
+        android:layout_height="112dp"
         android:layout_gravity="center"
-        tools:src="@drawable/umkc" />
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/umkc" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"

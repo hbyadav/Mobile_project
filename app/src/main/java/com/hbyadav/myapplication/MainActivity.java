@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rssLinks.add("http://www.cinemablend.com/rss_review.php");
     }
 
+    // Buttons to read news
 	@Override
     public void onClick(View view) {
         switch (view.getId()) {
