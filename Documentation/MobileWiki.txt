@@ -1,0 +1,144 @@
+# Mobile Exam - Student Hub
+![android-chrome-192x192](https://user-images.githubusercontent.com/39749061/88755972-ef7b8200-d127-11ea-8bef-61f54ae1e50f.png)
+
+## User Interface
+### Startup
+The home screen contains options for users to sign up for the app, login to the app (returning users), view the weather activity, and see the most recent news. The weather fragment is also available within the tab layout after logging into the app (the news activities would hopefully be added in future updates, but are currently only available from the home page). 
+
+<img src="https://user-images.githubusercontent.com/39749061/88755766-7c720b80-d127-11ea-9cc6-eb034282fdc5.png" width="300">
+
+**Home Screen**
+
+### Sign Up
+When the sign up button is clicked, the user is redirected to the Sign Up activity. Here, the user enters a username and a password. The secondary password field must be confirmed to match the first before the user can progress. Proper credentials are entered into the Login table of the SQLite database.
+
+<img src="https://user-images.githubusercontent.com/39749061/88755760-7bd97500-d127-11ea-8f2c-678947a36cc2.png" width="300">
+
+**Sign Up Screen**
+
+Once the account is created, the user is directed to enter their personal information. They can also choose between using the default profile picture or using the camera to take their own. Proper values are entered into the Details table of the database.
+
+<img src="https://user-images.githubusercontent.com/39749061/88755765-7c720b80-d127-11ea-9008-ce295b2b30f4.png" width="300">
+
+**Create Profile Screen**
+
+Once entered, they are redirected to the Login screen. Here, the username and password entered on the Sign In screen (or others in the database) must be used to login. If the pair does not match, the user is prevented from logging in. 
+
+<img src="https://user-images.githubusercontent.com/39749061/88755769-7d0aa200-d127-11ea-958c-1272d5cfaaab.png" width="300">
+
+**Log In Screen**
+
+### The Hub
+Once logged in, the user is redirected the main Hub screen. On the Home tab, the user can see their profile information. There are also buttons to update their profile information as well as log out of the app. 
+
+<img src="https://user-images.githubusercontent.com/39749061/88756515-72e9a300-d129-11ea-94bf-d51995049e36.png" width="300">
+
+**The Hub: Home Tab**
+
+If the user taps on the update button, the Update Profile activity is started. The form is initialized with the user's current database values. Once edited, an update is pushed to the Details database (based on the username column). 
+
+<img src="https://user-images.githubusercontent.com/39749061/88755761-7bd97500-d127-11ea-97ef-f5c35f83390f.png" width="300">
+
+**Update Profile**
+
+On the Schedule tab, the user can see their given class schedule. If no courses have been added yet, a prompt is given to the user to tap the plus button. This opens the Make Schedule activity to add a course to the Schedule table in the database. Otherwise, the user's list of courses are shown. There is also a Refresh button to update the view (if needed) after adding a course. 
+
+<img src="https://user-images.githubusercontent.com/39749061/88756513-72510c80-d129-11ea-8b36-b6fe46689b7b.png" width="300">
+
+**The Hub: Schedule Tab**
+
+The Make Schedule activity allows a user to enter the course name as well as select a course/subject type, day of the week, and time (using a Time Picker). After saving the course, a dialog appears to see if the user would like to continue adding courses or return to the Hub.
+
+<img src="https://user-images.githubusercontent.com/39749061/88755764-7c720b80-d127-11ea-9fa3-21f2ee589c98.png" width="300">
+<img src="https://user-images.githubusercontent.com/39749061/88755759-7b40de80-d127-11ea-9d8b-36f6e1e61c26.png" width="300">
+
+**Adding a Course 　　　　　　　　　　　　Finished Schedule Dialog**
+
+The Weather tab allows the user to view the current weather conditions in one location.
+
+<img src="https://user-images.githubusercontent.com/39749061/88756514-72e9a300-d129-11ea-91ad-1c05ff646340.png" width="300">
+
+**The Hub: Weather Tab**
+
+The News buttons on the home page direct the user to two RSS feeds. These show popular news stories at the time from the respective sites (based on the button name) and open a clicked story in a built-in Web browser.
+
+<img src="https://user-images.githubusercontent.com/39749061/88755770-7d0aa200-d127-11ea-8302-dfde2cde19cc.png" width="300">
+<img src="https://user-images.githubusercontent.com/39749061/88755763-7bd97500-d127-11ea-8068-ac55b7771309.png" width="300">
+
+**News Feed - RSS　　　　　　　　　　　　　　News Feed - Web Browser**
+
+## Code - Major Functions
+### Validation
+To validate user credentials when creating an account, the Sign Up activity checks to ensure the given passwords match.
+
+![signUpValidation](https://user-images.githubusercontent.com/39749061/88756654-d5db3a00-d129-11ea-80c7-616d0bf9ee9c.PNG)
+
+**Sign Up Validation**
+
+Similarly, the Login activity validates that the given username/password pair matches what is in the database.
+
+![loginValidation](https://user-images.githubusercontent.com/39749061/88756664-d7a4fd80-d129-11ea-87ae-7ef9474676d4.PNG)
+
+**Login Validation**
+
+### Image Processing
+There were a couple functions to assist with storing and retrieving the profile image of the user in the database. The ImageConversion class handled converting the images back and forth from Bitmaps (to display) to byte arrays (to store). Also, a Camera intent was used to capture a user defined profile picture if desired.
+
+![capturingProfileImage](https://user-images.githubusercontent.com/39749061/88756660-d70c6700-d129-11ea-90ed-ebfc18a2b8e7.PNG)
+
+**Capture Profile Image From Camera*
+
+![ImageConversionClass](https://user-images.githubusercontent.com/39749061/88756662-d70c6700-d129-11ea-9806-dcf0c521379a.PNG)
+
+**Image Conversion Functions**
+
+![dbImagetoUI](https://user-images.githubusercontent.com/39749061/88756661-d70c6700-d129-11ea-87d5-b69d5de7a707.PNG)
+
+*Sample Conversion** - assigning database array to Bitmap image of Profile Picture ImageView
+
+### Database
+There were several database functions to assist in storing and retrieving data from the database. Each table had its own similar methods for storing, retrieving, and updating as needed. Some examples are below.
+
+![addToLoginTable](https://user-images.githubusercontent.com/39749061/88756659-d70c6700-d129-11ea-8387-c31a443ed17a.PNG)
+
+*Add to Login Table**
+
+![retrieveFromDetail Schedule](https://user-images.githubusercontent.com/39749061/88756665-d7a4fd80-d129-11ea-8961-07224716bcf5.PNG)
+
+**Retrieve from Detail and Schedule Tables**
+
+![stringsOfUserDetails](https://user-images.githubusercontent.com/39749061/88756655-d673d080-d129-11ea-9e3d-b4e1373fdc9d.PNG)
+
+**Sample Database Call** - assign data from details table to strings for use in UI
+
+![scheduleView](https://user-images.githubusercontent.com/39749061/88756668-d7a4fd80-d129-11ea-8ce3-be64056292cd.PNG)
+
+**Sample Database Call** - assign data from schedule to an item in list adapter, _also note the visibility control of the user prompt to add to the schedule_
+
+### API's
+Both the Weather and RSS Feed activities implement API's to show external data to the user. Below are some important snippets from each.
+
+![weatherAPICall](https://user-images.githubusercontent.com/39749061/88756657-d673d080-d129-11ea-8869-9a36dd00e2b7.PNG)
+![setWeatherIcon](https://user-images.githubusercontent.com/39749061/88756669-d83d9400-d129-11ea-99e5-592595c9aee5.PNG)
+
+**Weather API Call　　　　　　　　　　　　　　Weather Icon Assignment**
+
+![RSSFeedAPI](https://user-images.githubusercontent.com/39749061/88756666-d7a4fd80-d129-11ea-8338-0de078764e96.PNG)
+![WebBrowserSetup](https://user-images.githubusercontent.com/39749061/88756658-d673d080-d129-11ea-8bdc-aade78e4e72e.PNG)
+
+**RSS Feed API　　　　　　　　　　　　　　Web Browser Setup**
+
+### Layout
+Two important "layout" pieces of the app are the use of the Tab View for the Hub and the AlertDialog in the Make Schedule activity. These provide helpful UX to the user in their own separate ways by directing the user to make intuitive actions.
+
+![TabLayout](https://user-images.githubusercontent.com/39749061/88756656-d673d080-d129-11ea-9f33-a6765bedad5f.PNG)
+
+**Tab Layout**
+
+![ScheduleAlert](https://user-images.githubusercontent.com/39749061/88756667-d7a4fd80-d129-11ea-965a-3501296fa0c8.PNG)
+
+**Schedule Creator Dialog**
+
+
+
+
