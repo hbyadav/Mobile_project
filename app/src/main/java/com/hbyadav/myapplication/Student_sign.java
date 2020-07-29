@@ -18,9 +18,10 @@ public class Student_sign extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_sign);
+        getSupportActionBar().setTitle(R.string.sign);
         studentAdapter = new StudentbaseAdapter(this);
         studentAdapter = studentAdapter.open();
-// Get Refferences of Views
+
         editTextUserName=(EditText)findViewById(R.id.editTextUserName);
         editTextPassword=(EditText)findViewById(R.id.editTextPassword);
         editTextConfirmPassword=(EditText)findViewById(R.id.editTextConfirmPassword);
@@ -28,20 +29,23 @@ public class Student_sign extends AppCompatActivity {
         btnCreateAccount = (Button) findViewById(R.id.enter);
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // get field values for database
                 String userName = editTextUserName.getText().toString();
                 String password = editTextPassword.getText().toString();
                 String confirmPassword = editTextConfirmPassword.getText().toString();
-// check if any of the fields are vacant
+                // check if any of the fields are vacant
                 if (userName.equals("") || password.equals("") || confirmPassword.equals("")) {
                     Toast.makeText(getApplicationContext(), "Field Vacant", Toast.LENGTH_LONG).show();
                 }
-// check if both password matches
+                // check if both passwords match
                 else if (!password.equals(confirmPassword)) {
                     Toast.makeText(getApplicationContext(), "Password does not match",
                             Toast.LENGTH_LONG).show();
                 } else {
+                    // add to Login database if correct
                     studentAdapter.insertEntry(userName, password);
                     Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_SHORT).show();
+                    // direct to Profile creation page
                     Intent intent = new Intent(Student_sign.this, Profile.class);
                     intent.putExtra("user", userName);
                     startActivity(intent);

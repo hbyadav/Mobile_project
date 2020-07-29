@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.tourguide.R;
-public class Student_schedule extends AppCompatActivity {
+public class Student_schedule extends AppCompatActivity {   // activity to hold schedule fragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

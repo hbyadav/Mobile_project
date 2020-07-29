@@ -18,14 +18,16 @@ public class Student_display extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_display);  //set base display
+        getSupportActionBar().setTitle(R.string.app_name);
+
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("username");        // variable to keep track of user logged in
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         SimpleFragmentAdapter adapter = new SimpleFragmentAdapter(this, getSupportFragmentManager());
-// Set the adapter onto the view pager
+                                                        // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);            // create tabbed view
+        tabLayout.setupWithViewPager(viewPager);       // create tabbed view
     }
 
     // utility function to get currently logged in user

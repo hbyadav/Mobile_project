@@ -4,7 +4,6 @@ import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.android.tourguide.R;
@@ -29,7 +28,7 @@ public class SimpleFragmentAdapter extends FragmentStatePagerAdapter {
         }
     }
 
-    @Override
+    @Override                                               // number of tabs
     public int getCount() {
         return 3;
     }

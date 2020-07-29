@@ -1,7 +1,6 @@
 package com.hbyadav.myapplication;
 
 import android.graphics.Typeface;
-import android.location.LocationListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -39,10 +38,10 @@ public class WeatherFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
-        updateWeatherData(new CityPreference(getActivity()).getCity());
+        updateWeatherData(new CityPreference(getActivity()).getCity());   // get city for which to return the weather
     }
 
-    private void updateWeatherData(final String city) {
+    private void updateWeatherData(final String city) {     // call to weather API
         new Thread() {
             public void run() {
                 final JSONObject json = RemoteFetch.getJSON(getActivity(), city);
@@ -65,7 +64,7 @@ public class WeatherFragment extends Fragment{
         }.start();
     }
 
-    private void renderWeather(JSONObject json) {
+    private void renderWeather(JSONObject json) {           // parse API response to UI view
         try {
             cityField.setText(json.getString("name").toUpperCase(Locale.US) +
                     ", " +
@@ -94,7 +93,7 @@ public class WeatherFragment extends Fragment{
         }
     }
 
-    private void setWeatherIcon(int actualId, long sunrise, long sunset) {
+    private void setWeatherIcon(int actualId, long sunrise, long sunset) {     // set appropriate weather icon
         int id = actualId / 100;
         String icon = "";
         if (actualId == 800) {
@@ -128,9 +127,6 @@ public class WeatherFragment extends Fragment{
         }
         weatherIcon.setText(icon);
     }
-    public void changeCity(String city){
-        updateWeatherData(city);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -141,7 +137,6 @@ public class WeatherFragment extends Fragment{
         detailsField = (TextView) rootView.findViewById(R.id.details_field);
         currentTemperatureField = (TextView) rootView.findViewById(R.id.current_temperature_field);
         weatherIcon = (TextView) rootView.findViewById(R.id.weather_icon);
-
         weatherIcon.setTypeface(weatherFont);
         return rootView;
     }
