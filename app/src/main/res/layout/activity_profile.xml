@@ -8,10 +8,42 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="Edit Profile"
+        android:text="Create Profile"
         android:textColor="@color/text1"
         android:textSize="50sp"
         android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/profile"
+            android:tint="@color/colorPrimary" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.MaterialComponents.Light">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pictureB"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Take Picture"
+                android:textAllCaps="false"
+                android:textColor="@color/text1"
+                android:textSize="15sp"
+                app:rippleColor="@color/ripple" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/edittextname"
@@ -63,15 +95,9 @@
             android:id="@+id/create"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Update Information"
+            android:text="Add Information"
             android:textAllCaps="false"
             android:textSize="25sp" />
     </com.google.android.material.card.MaterialCardView>
-
-<!--    <Button-->
-<!--        android:id="@+id/logout"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:onClick="logout"/>-->
 
 </LinearLayout>

@@ -5,13 +5,20 @@
     <string name="Student_Attendance">Attendance</string>
     <string name="change_city">Change city</string>
     <string name="weather">Weather</string>
+    <string name="sign">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="schedule">Create Schedule</string>
+    <string name="cProfile">Create Profile</string>
+    <string name="uProfile">Update Profile</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="finishT">Schedule Creator</string>
+    <string name="finishM">Are you finished updating your schedule?</string>
 
-    <!-- Put your own APP ID here -->
+    <!-- Weather Fragment Strings -->
     <string name="open_weather_maps_app_id">82d97041880c12cc833df31e50ea5901</string>
-
     <string name="weather_sunny">&#xf00d;</string>
     <string name="weather_clear_night">&#xf02e;</string>
-
     <string name="weather_foggy">&#xf014;</string>
     <string name="weather_cloudy">&#xf013;</string>
     <string name="weather_rainy">&#xf019;</string>

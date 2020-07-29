@@ -14,10 +14,13 @@ public class Student extends AppCompatActivity {
     EditText editTextname, editTextpassword;
     StudentbaseAdapter studentAdapter;
 
+    // This is the login screen
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
+        getSupportActionBar().setTitle(R.string.login);
         studentAdapter = new StudentbaseAdapter(this);
         studentAdapter = studentAdapter.open();
         editTextname = (EditText) findViewById(R.id.editname);
@@ -31,12 +34,12 @@ public class Student extends AppCompatActivity {
                 String password = editTextpassword.getText().toString();
                 String storedPassword = studentAdapter.getpassword(username);
 
-                if (password.equals(storedPassword)) {
+                if (password.equals(storedPassword)) {          // direct to user main hub if login is correct
                     Toast.makeText(Student.this, "Login Successful", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Student.this, Student_display.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
-                } else {
+                } else {                                        // else, show error message
                     Toast.makeText(Student.this, "Username or Password is incorrect", Toast.LENGTH_LONG).show();
                 }
         }

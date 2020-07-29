@@ -36,6 +36,7 @@ public class Schedule_fragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_student_schedule,
                 container, false);
+
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_sch);
         assert fab != null;
         FloatingActionButton refreshBtn = (FloatingActionButton) view.findViewById(R.id.refresh);
@@ -49,7 +50,7 @@ public class Schedule_fragment extends Fragment {
                 startActivity(launchIntent);
             }
         });
-
+                                                    // button to refresh view after updating database (if needed)
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +58,7 @@ public class Schedule_fragment extends Fragment {
             }
         });
 
-        refresh(view);          // intialize with schedule
+        refresh(view);          // initialize with current schedule (if present)
 
         return view;
     }
@@ -72,11 +73,11 @@ public class Schedule_fragment extends Fragment {
         // query database based on username, return schedule info for each class
         Cursor cursor = studentAdapter.schedule(username);
         if (cursor == null || cursor.getCount() == 0) {
-            prompt.setVisibility(View.VISIBLE);
+            prompt.setVisibility(View.VISIBLE);         // if there is no schedule, prompt to user to create one
             Toast.makeText(getActivity(), "No Schedules Available",
                     Toast.LENGTH_LONG).show();
         } else {
-            prompt.setVisibility(View.INVISIBLE);
+            prompt.setVisibility(View.INVISIBLE);       // set prompt to hidden if a schedule is available
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 subs.add("Course Name: " + cursor.getString(2) +
@@ -85,7 +86,7 @@ public class Schedule_fragment extends Fragment {
                 cursor.moveToNext();
             }
         }
-        adapter = new ArrayAdapter(getActivity(),
+        adapter = new ArrayAdapter(getActivity(),       // simple list adapter to display classes
                 android.R.layout.simple_list_item_1, subs);
         listView.setAdapter(adapter);
     }
