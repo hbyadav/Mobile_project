@@ -4,11 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.tourguide.R;
-public class Student_schedule extends AppCompatActivity {
+public class Student_schedule extends AppCompatActivity {   // activity to hold schedule fragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_schedule);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new Attendence_fragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new Schedule_fragment()).commit();
     }
 }

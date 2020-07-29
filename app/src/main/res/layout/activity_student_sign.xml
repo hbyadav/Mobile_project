@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -44,12 +46,21 @@
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <Button
-        android:id="@+id/enter"
+    <com.google.android.material.card.MaterialCardView
+        android:theme="@style/Theme.MaterialComponents.Light"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Sign Up"
-        android:textAllCaps="false"
-        android:textSize="25sp" />
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/enter"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="60dp"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textSize="25sp" />
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

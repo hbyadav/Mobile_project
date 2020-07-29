@@ -16,12 +16,11 @@ public class StudentbaseAdapter {
     public static final String TABLE_DETAILS = "DETAILS";
     public static final String TABLE_LOGIN = "LOGIN";
     public static final String TABLE_SCHED = "SCHEDULE";
-    public static final int NAME_COLUMN = 1;
 
-// SQL Statement to create a new database.
+    // SQL Statement to create a new database and tables
     // Table for storing user details
     public static final String DATABASE_CREATE = "create table " + TABLE_DETAILS +
-            "( " + "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT," + "USERNAME text,NAME text,FEES text,SCHOOL text,YEAR text,PHONE text);";
+            "( " + "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT," + "USERNAME text,NAME text,FEES text,SCHOOL text,YEAR text,PHONE text,PROFILE blob);";
     // Table for storing login credentials
     public static final String DATABASE_SIGN = "create table " + TABLE_LOGIN +
             "( " + "ID" + " integer primary key autoincrement," + "USERNAME text,PASSWORD text); ";
@@ -45,6 +44,7 @@ public class StudentbaseAdapter {
         return this;
     }
 
+    // insert user into Login database
     public void insertEntry(String userName, String password) {
         db = dbHelper.getWritableDatabase();
         ContentValues newValues = new ContentValues();
@@ -56,6 +56,7 @@ public class StudentbaseAdapter {
         Log.i("StudentbaseAdaptor", "User added to Login DB");
     }
 
+    // insert course info into schedule database
     public void Schedule(String course, String subject, String time, String week, String Username) {
         db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -67,7 +68,8 @@ public class StudentbaseAdapter {
         db.insert(TABLE_SCHED,null,contentValues);
     }
 
-    public void insertdetails(String user, String name, String fees, String phone, String school, String year) {
+    // insert user information into details database
+    public void insertdetails(String user, String name, String fees, String phone, String school, String year, byte[] profile) {
         db = dbHelper.getWritableDatabase();
         ContentValues newValues = new ContentValues(); // Assign column values for each row.
         newValues.put("USERNAME", user);
@@ -76,11 +78,28 @@ public class StudentbaseAdapter {
         newValues.put("SCHOOL", school);
         newValues.put("YEAR", year);
         newValues.put("PHONE", phone);
-        // Insert the row into your table
+        newValues.put("PROFILE", profile);
         db.insert(TABLE_DETAILS, null, newValues);
         Log.i("StudentbaseAdapter", "User details added");
     }
 
+    // update user information in details database
+    public void updateDetails(String user, String name, String fees, String phone, String school, String year, byte[] profile ) {
+        db = dbHelper.getWritableDatabase();
+        ContentValues newValues = new ContentValues(); // Assign column values for each row.
+        newValues.put("NAME", name);
+        newValues.put("FEES", fees);
+        newValues.put("SCHOOL", school);
+        newValues.put("YEAR", year);
+        newValues.put("PHONE", phone);
+        newValues.put("PROFILE", profile);
+        // update DB
+        if ((db.update(TABLE_DETAILS, newValues, "USERNAME=?", new String[] {user}))>0) {
+            Log.i("StudentbaseAdapter", "Row updated");
+        }
+    }
+
+    // method to return password of a given user to validate a login attempt
     public String getpassword(String username) {
         db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_LOGIN, null, "USERNAME=?", new String[]{username}, null, null, null);
@@ -95,6 +114,7 @@ public class StudentbaseAdapter {
         return password;
     }
 
+    // return user information from details table
     public Cursor getSingleEntry(String username) {
         db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from DETAILS where USERNAME = ?", new String[]{username});
@@ -103,19 +123,6 @@ public class StudentbaseAdapter {
         return cursor;
     }
 
-//    public ArrayList<String> getAllStringValues() {
-//        ArrayList<String> yourStringValues = new ArrayList<String>();
-//        Cursor result = db.query(true, TABLE_DETAILS,
-//                new String[]{"USERNAME"}, null, null, null, null, null, null);
-//        if (result.moveToFirst()) {
-//            do {
-//                yourStringValues.add(result.getString(result.getColumnIndex("USERNAME")));
-//            } while (result.moveToNext());
-//        } else {
-//            return null;
-//        }
-//        return yourStringValues;
-//    }
     // get schedule for user
     public Cursor schedule(String username) {
         db = dbHelper.getReadableDatabase();

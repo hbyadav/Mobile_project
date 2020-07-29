@@ -15,6 +15,7 @@ public class Helper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
+    // helper creates database/tables
     @Override
     public void onCreate(SQLiteDatabase _db) {
         _db.execSQL(StudentbaseAdapter.DATABASE_CREATE);
@@ -22,18 +23,7 @@ public class Helper extends SQLiteOpenHelper {
         _db.execSQL(StudentbaseAdapter.DATABASE_SCHED);
     }
 
-//    public boolean execAction(String qu) {
-//        Log.i("databaseHandler", qu);
-//        try {
-//            _db.execSQL(qu);
-//        } catch (Exception e) {
-//            Log.e("databaseHandler", qu);
-//            Toast.makeText(activity, "Error Occured for execAction", Toast.LENGTH_LONG).show();
-//            return false;
-//        }
-//        return true;
-//    }
-
+    // reset tables if changed
     @Override
     public void onUpgrade(SQLiteDatabase _db, int _oldVersion, int _newVersion) {
         Log.w("TaskDBAdapter", "Upgrading from version " + _oldVersion + " to "

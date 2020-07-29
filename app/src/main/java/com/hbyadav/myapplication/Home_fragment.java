@@ -2,12 +2,14 @@ package com.hbyadav.myapplication;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -17,12 +19,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
 
-public class Home_fragment extends Fragment {
+import java.io.IOException;
+import java.util.Arrays;
 
+public class Home_fragment extends Fragment {
+            // Student home/profile view tab
     StudentbaseAdapter studentAdapter;
     Student_display student = new Student_display();
     public String username = "";
-    public FloatingActionButton editProfile;
+    public FloatingActionButton editProfile, logoutBtn;
 
     @Nullable
     @Override
@@ -32,20 +37,30 @@ public class Home_fragment extends Fragment {
 
         studentAdapter = new StudentbaseAdapter(getActivity());
         studentAdapter = studentAdapter.open();
-        //EditText editText=(EditText)container.findViewById(R.id.editname);
-       // String username = editText.getText().toString();
 
-//        editProfile = (FloatingActionButton) view.findViewById(R.id.editPBtn);
-//        editProfile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {            // button to allow user to edit profile
-//                Intent intent = new Intent(getActivity(), Profile.class);
-//                startActivity(intent);
-//            }
-//        });
+        editProfile = (FloatingActionButton) view.findViewById(R.id.editPBtn);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {            // button to allow user to edit profile
+                Intent intent = new Intent(getActivity(), Update_profile.class);
+                intent.putExtra("user", username);
+                startActivity(intent);
+            }
+        });
+
+        logoutBtn = (FloatingActionButton) view.findViewById(R.id.logout);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {            // redirect user to home page on logout
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         username = student.Username();
+
         if (username != null) {
+            // get user details from database to display
             Cursor _cursor = studentAdapter.getSingleEntry(username);
             int id = _cursor.getInt(0);
             String name = _cursor.getString(2);
@@ -53,7 +68,8 @@ public class Home_fragment extends Fragment {
             String school = _cursor.getString(4);
             String yr = _cursor.getString(5);
             String phone = _cursor.getString(6);
-            PhoneNumberUtils.formatNumber(phone);           // format as phone number
+            String phoneFormatted = PhoneNumberUtils.formatNumber(phone);  // format as phone number
+            byte[] profileArr = _cursor.getBlob(7);
 
             TextView uTv = (TextView) view.findViewById(R.id.uname);
             uTv.setText("Username: " + username);
@@ -64,9 +80,21 @@ public class Home_fragment extends Fragment {
             TextView yTv = (TextView) view.findViewById(R.id.year);
             yTv.setText("Graduation Year: " + yr);
             TextView pTv = (TextView) view.findViewById(R.id.Phone);
-            pTv.setText("Phone Number: " + phone);
+            pTv.setText("Phone #: " + phoneFormatted);
             TextView fTv = (TextView) view.findViewById(R.id.Fees);
             fTv.setText("Fees: $" + fees);
+                    // get byte array from database, convert to image, assign to profile ImageView
+            ImageView profileImage = (ImageView) view.findViewById(R.id.profilePic);
+            Bitmap profileBit = ImageConversion.getImage(profileArr);
+            profileImage.setImageBitmap(profileBit);
+            try {                                        // if profile image is default, add tint
+                if(Arrays.equals(profileArr,ImageConversion.defaultProfile(getActivity()))) {
+                    profileImage.setColorFilter(R.color.colorPrimary, PorterDuff.Mode.SRC_ATOP);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
         return view;
     }

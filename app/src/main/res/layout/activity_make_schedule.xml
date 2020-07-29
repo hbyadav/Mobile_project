@@ -1,67 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="Add a Class to Your Schedule"
-        android:textColor="@color/text1"
-        android:textSize="25sp" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/subjectName"
-        android:textColorHint="@color/text2"
-        android:layout_width="299dp"
-        android:layout_height="wrap_content"
-        android:hint="Class Name/Nickname"
-        android:textColor="@color/text2"
-        android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Add a Class to Your Schedule"
+            android:textColor="@color/text1"
+            android:textSize="25sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:textColorHint="@color/text2"
-        android:layout_marginLeft="2dp"
-        android:layout_height="wrap_content"
-        android:text="Subject ID (choose below)"
-        android:textColor="@color/text2"
-        android:textSize="20sp" />
+        <EditText
+            android:id="@+id/subjectName"
+            android:textColorHint="@color/text2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Class Name/Nickname"
+            android:textColor="@color/text2"
+            android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/classSelector"
-        android:textColor="@color/text2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:textColorHint="@color/text2"
+            android:layout_marginLeft="2dp"
+            android:layout_height="wrap_content"
+            android:text="Subject ID (choose below)"
+            android:textColor="@color/text2"
+            android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:textColorHint="@color/text2"
-        android:text="Class Day (choose below)"
-        android:textColor="@color/text2"
-        android:textSize="20sp" />
+        <Spinner
+            android:id="@+id/classSelector"
+            android:textColor="@color/text2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
 
-    <Spinner
-        android:id="@+id/daySelector"
-        android:textColor="@color/text2"
-        android:layout_width="301dp"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:textColorHint="@color/text2"
+            android:text="Class Day (choose below)"
+            android:textColor="@color/text2"
+            android:textSize="20sp" />
 
-    <TimePicker
-        android:id="@+id/timePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/daySelector"
+            android:textColor="@color/text2"
+            android:layout_width="301dp"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/saveBUTTON_SCHEDULE"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Add to Schedule"
-        android:textAllCaps="false"
-        android:textSize="25sp" />
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-
-</LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.MaterialComponents.Light">
+            <com.google.android.material.button.MaterialButton
+                style="?attr/borderlessButtonStyle"
+                android:layout_gravity="center"
+                app:rippleColor="@color/ripple"
+                android:textColor="@color/text1"
+                android:id="@+id/saveBUTTON_SCHEDULE"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Add to Schedule"
+                android:textAllCaps="false"
+                android:textSize="25sp" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

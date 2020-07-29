@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="319dp"
-        android:layout_height="319dp"
+        android:layout_width="211dp"
+        android:layout_height="244dp"
         android:layout_gravity="center"
         tools:src="@drawable/umkc" />
 
@@ -23,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            app:rippleColor="@color/ripple"
             android:onClick="sign"
             android:text="Sign Up"
             android:textColor="@color/text1"
@@ -31,12 +33,13 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
         android:theme="@style/Theme.MaterialComponents.Light">
 
         <com.google.android.material.button.MaterialButton
             style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -45,6 +48,27 @@
             android:textColor="@color/text1"
             android:textSize="20sp" />
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:theme="@style/Theme.MaterialComponents.Light">
+
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="weather"
+            android:text="Weather"
+            android:textColor="@color/text1"
+            android:textSize="20sp"
+            android:title="@string/change_city" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--add button for other API-->
 
     <TextView
         android:layout_width="match_parent"
