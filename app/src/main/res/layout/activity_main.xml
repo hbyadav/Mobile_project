@@ -69,6 +69,41 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!--add button for other API-->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:theme="@style/Theme.MaterialComponents.Light">
+
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
+            android:id="@+id/btnCinemaBlend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="CINEMA BLEND RSS FEED"
+            android:textColor="@color/text1"
+            android:textSize="20sp"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:theme="@style/Theme.MaterialComponents.Light">
+
+        <com.google.android.material.button.MaterialButton
+            style="?attr/borderlessButtonStyle"
+            app:rippleColor="@color/ripple"
+            android:id="@+id/btnRediff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="REDIFF.COM RSS FEED"
+            android:textColor="@color/text1"
+            android:textSize="20sp" />
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:layout_width="match_parent"
