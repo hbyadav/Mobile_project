@@ -1,7 +1,7 @@
 package com.hbyadav.myapplication;
 
 
-public class RSSItem {
+public class StHubRSSItem {
 
     public String title;
     public String link;
@@ -9,7 +9,7 @@ public class RSSItem {
     public String pubdate;
     public String guid;
 
-    public RSSItem(String title, String link, String description, String pubdate, String guid) {
+    public StHubRSSItem(String title, String link, String description, String pubdate, String guid) {
         this.title = title;
         this.link = link;
         this.description = description;

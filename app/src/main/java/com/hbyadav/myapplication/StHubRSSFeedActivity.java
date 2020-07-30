@@ -24,16 +24,16 @@ import java.util.List;
 import java.util.Locale;
 import com.android.tourguide.R;
 
-public class RSSFeedActivity extends ListActivity {
+public class StHubRSSFeedActivity extends ListActivity {
 
 
     private ProgressBar pDialog;
-    ArrayList<HashMap<String, String>> rssItemList = new ArrayList<>();
+    ArrayList<HashMap<String, String>> stHubRssItemList = new ArrayList<>();
 
-    RSSParser rssParser = new RSSParser();
+    StHubRSSParser stHubRssParser = new StHubRSSParser();
     Toolbar toolbar;
 
-    List<RSSItem> rssItems = new ArrayList<>();
+    List<StHubRSSItem> stHubRssItems = new ArrayList<>();
     private static String TAG_TITLE = "title";
     private static String TAG_LINK = "link";
     private static String TAG_PUB_DATE = "pubDate";
@@ -41,7 +41,7 @@ public class RSSFeedActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rss_feed);
+        setContentView(R.layout.activity_st_hub_rss_feed);
 
 
         String rss_link = getIntent().getStringExtra("rssLink");
@@ -53,7 +53,7 @@ public class RSSFeedActivity extends ListActivity {
 
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Intent in = new Intent(getApplicationContext(), BrowserActivity.class);
+                Intent in = new Intent(getApplicationContext(), StHubBrowserActivity.class);
                 String page_url = ((TextView) view.findViewById(R.id.page_url)).getText().toString().trim();
                 in.putExtra("url", page_url);
                 startActivity(in);
@@ -66,7 +66,7 @@ public class RSSFeedActivity extends ListActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressBar(RSSFeedActivity.this, null, android.R.attr.progressBarStyleLarge);
+            pDialog = new ProgressBar(StHubRSSFeedActivity.this, null, android.R.attr.progressBarStyleLarge);
 
 
             RelativeLayout relativeLayout = findViewById(R.id.relativeLayout);
@@ -87,10 +87,10 @@ public class RSSFeedActivity extends ListActivity {
             String rss_url = args[0];
 
             // list of rss items
-            rssItems = rssParser.getRSSFeedItems(rss_url);
+            stHubRssItems = stHubRssParser.getRSSFeedItems(rss_url);
 
             // looping through each item
-            for (RSSItem item : rssItems) {
+            for (StHubRSSItem item : stHubRssItems) {
                 // creating new HashMap
                 if (item.link.toString().equals(""))
                     break;
@@ -116,15 +116,15 @@ public class RSSFeedActivity extends ListActivity {
                 map.put(TAG_PUB_DATE, item.pubdate); // If you want parse the date
 
                 // adding HashList to ArrayList
-                rssItemList.add(map);
+                stHubRssItemList.add(map);
             }
 
             // updating UI from Background Thread
             runOnUiThread(new Runnable() {
                 public void run() {
                     ListAdapter adapter = new SimpleAdapter(
-                            RSSFeedActivity.this,
-                            rssItemList, R.layout.rss_item_list_row,
+                            StHubRSSFeedActivity.this,
+                            stHubRssItemList, R.layout.st_hub_rss_item_list_row,
                             new String[]{TAG_LINK, TAG_TITLE, TAG_PUB_DATE},
                             new int[]{R.id.page_url, R.id.title, R.id.pub_date});
 

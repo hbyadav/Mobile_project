@@ -24,9 +24,8 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.android.tourguide.R;
 
-public class RSSParser {
+public class StHubRSSParser {
 
     // RSS XML document CHANNEL tag
     private static String TAG_CHANNEL = "channel";
@@ -38,12 +37,12 @@ public class RSSParser {
     private static String TAG_GUID = "guid";
 
     // constructor
-    public RSSParser() {
+    public StHubRSSParser() {
 
     }
 
-    public List<RSSItem> getRSSFeedItems(String rss_url) {
-        List<RSSItem> itemsList = new ArrayList<RSSItem>();
+    public List<StHubRSSItem> getRSSFeedItems(String rss_url) {
+        List<StHubRSSItem> itemsList = new ArrayList<StHubRSSItem>();
         String rss_feed_xml;
 
         rss_feed_xml = this.getXmlFromUrl(rss_url);
@@ -63,10 +62,10 @@ public class RSSParser {
                     String pubdate = this.getValue(e1, TAG_PUB_DATE);
                     String guid = this.getValue(e1, TAG_GUID);
 
-                    RSSItem rssItem = new RSSItem(title, link, description, pubdate, guid);
+                    StHubRSSItem stHubRssItem = new StHubRSSItem(title, link, description, pubdate, guid);
 
                     // adding item to list
-                    itemsList.add(rssItem);
+                    itemsList.add(stHubRssItem);
                 }
             } catch (Exception e) {
                 // Check log for errors

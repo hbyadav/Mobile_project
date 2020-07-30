@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnRediff:
-                startActivity(new Intent(MainActivity.this, RSSFeedActivity.class).putExtra("rssLink", rssLinks.get(0)));
+                startActivity(new Intent(MainActivity.this, StHubRSSFeedActivity.class).putExtra("rssLink", rssLinks.get(0)));
                 break;
 
             case R.id.btnCinemaBlend:
-                startActivity(new Intent(MainActivity.this, RSSFeedActivity.class).putExtra("rssLink", rssLinks.get(1)));
+                startActivity(new Intent(MainActivity.this, StHubRSSFeedActivity.class).putExtra("rssLink", rssLinks.get(1)));
                 break;
         }
     }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     // View weather API activity
     public void weather(View view) {
-        Intent intent = new Intent(this, WeatherActivity.class);
+        Intent intent = new Intent(this, StHubWeatherActivity.class);
         startActivity(intent);
 
     }

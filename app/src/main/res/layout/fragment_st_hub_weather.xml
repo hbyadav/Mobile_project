@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hbyadav.myapplication.WeatherActivity" >
+    tools:context="com.hbyadav.myapplication.StHubWeatherActivity" >
 
     <TextView
         android:id="@+id/city_field"

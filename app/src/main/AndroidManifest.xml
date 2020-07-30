@@ -63,14 +63,14 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.hbyadav.myapplication.WeatherActivity"
+            android:name="com.hbyadav.myapplication.StHubWeatherActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-        <activity android:name="com.hbyadav.myapplication.BrowserActivity" />
-        <activity android:name="com.hbyadav.myapplication.RSSFeedActivity" />
+        <activity android:name="com.hbyadav.myapplication.StHubBrowserActivity" />
+        <activity android:name="com.hbyadav.myapplication.StHubRSSFeedActivity" />
     </application>
 </manifest>

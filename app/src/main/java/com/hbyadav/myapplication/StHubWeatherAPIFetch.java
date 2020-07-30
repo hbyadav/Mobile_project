@@ -10,14 +10,14 @@ import org.json.JSONObject;
 import android.content.Context;
 import com.android.tourguide.R;
 
-public class RemoteFetch {
+public class StHubWeatherAPIFetch {
 
-    private static final String OPEN_WEATHER_MAP_API =
+    private static final String OPEN_WEATHER_MAP_API_FOR_ST_HUB =
             "http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric";
 
     public static JSONObject getJSON(Context context, String city){
         try {
-            URL url = new URL(String.format(OPEN_WEATHER_MAP_API, city));
+            URL url = new URL(String.format(OPEN_WEATHER_MAP_API_FOR_ST_HUB, city));
             HttpURLConnection connection =
                     (HttpURLConnection)url.openConnection();
 

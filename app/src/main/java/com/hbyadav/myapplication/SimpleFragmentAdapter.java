@@ -21,7 +21,7 @@ public class SimpleFragmentAdapter extends FragmentStatePagerAdapter {
             return new Home_fragment();
         }
         else if (position == 2) {
-            return new WeatherFragment();
+            return new StHubWeatherFragment();
         }
         else {
             return new Schedule_fragment();

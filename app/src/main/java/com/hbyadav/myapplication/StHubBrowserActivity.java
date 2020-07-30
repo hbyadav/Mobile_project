@@ -15,7 +15,7 @@ import com.android.tourguide.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class BrowserActivity extends AppCompatActivity {
+public class StHubBrowserActivity extends AppCompatActivity {
 
 
     WebView webView;
@@ -34,11 +34,11 @@ public class BrowserActivity extends AppCompatActivity {
         }
 
         webView = findViewById(R.id.webView);
-        initWebView();
+        initStHubNewsWebView();
         webView.loadUrl(url);
     }
 
-    private void initWebView() {
+    private void initStHubNewsWebView() {
         webView.setWebChromeClient(new MyWebChromeClient(this));
         webView.clearCache(true);
         webView.getSettings().setJavaScriptEnabled(true);
